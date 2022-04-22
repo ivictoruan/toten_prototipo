@@ -3,6 +3,10 @@ import 'package:toten_prototipo/src/json/constant.dart';
 import 'package:toten_prototipo/src/widgets/action_button.dart';
 import 'package:toten_prototipo/src/widgets/custom_carousel.dart';
 
+/// Página voltada para o início
+/// Esta tela é o primeiro contato que o usuário entratá em contato
+/// Existem promoções passando em um determinado tempo 
+
 class Starting extends StatefulWidget {
   const Starting({Key? key}) : super(key: key);
 
@@ -14,11 +18,6 @@ class _StartingState extends State<Starting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      // ),
       body: getBody(),
     );
   }
