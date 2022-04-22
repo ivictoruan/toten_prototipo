@@ -3,9 +3,11 @@ import 'package:toten_prototipo/src/json/constant.dart';
 import 'package:toten_prototipo/src/widgets/action_button.dart';
 import 'package:toten_prototipo/src/widgets/custom_carousel.dart';
 
+import '../instructions/instructions.dart';
+
 /// Página voltada para o início
 /// Esta tela é o primeiro contato que o usuário entratá em contato
-/// Existem promoções passando em um determinado tempo 
+/// Existem promoções passando em um determinado tempo
 
 class Starting extends StatefulWidget {
   const Starting({Key? key}) : super(key: key);
@@ -15,6 +17,14 @@ class Starting extends StatefulWidget {
 }
 
 class _StartingState extends State<Starting> {
+  void navigateToIntroduction() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const Intructions(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,12 +41,14 @@ class _StartingState extends State<Starting> {
       SizedBox(height: _height * 0.7, child: CustomCarousel(items: promotions)),
       SizedBox(height: _height * 0.1),
       SizedBox(
-          // width: _width * 0.02,
-          child: ActionButton(
-              icon: Icons.touch_app_outlined,
-              text: "TOQUE AQUI PARA INICIAR",
-              onTap: () {})),
-      const SizedBox(height: 40), 
+        // width: _width * 0.02,
+        child: ActionButton(
+          icon: Icons.touch_app_outlined,
+          text: "TOQUE AQUI PARA INICIAR",
+          onTap: navigateToIntroduction,
+        ),
+      ),
+      const SizedBox(height: 40),
     ]);
   }
 }
