@@ -3,7 +3,7 @@ import 'package:toten_prototipo/src/json/constant.dart';
 import 'package:toten_prototipo/src/widgets/action_button.dart';
 import 'package:toten_prototipo/src/widgets/custom_carousel.dart';
 
-import '../instructions/instructions.dart';
+import '../cashier/cashier.dart';
 
 /// Página voltada para o início
 /// Esta tela é o primeiro contato que o usuário entratá em contato
@@ -17,10 +17,18 @@ class Starting extends StatefulWidget {
 }
 
 class _StartingState extends State<Starting> {
-  void navigateToIntroduction() {
+  // void navigateToIntroduction() {
+  //   Navigator.of(context).push(
+  //     MaterialPageRoute(
+  //       builder: (context) => const Intructions(),
+  //     ),
+  //   );
+  // }
+
+  void navigateToCashier() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const Intructions(),
+        builder: (context) => const Cashier(),
       ),
     );
   }
@@ -34,21 +42,24 @@ class _StartingState extends State<Starting> {
 
   Widget getBody() {
     final double _height = MediaQuery.of(context).size.height;
-    // final double _width = MediaQuery.of(context).size.width;
 
-    return ListView(padding: EdgeInsets.zero, children: [
-      // const SizedBox(height: 20),
-      SizedBox(height: _height * 0.7, child: CustomCarousel(items: promotions)),
-      SizedBox(height: _height * 0.1),
-      SizedBox(
-        // width: _width * 0.02,
-        child: ActionButton(
-          icon: Icons.touch_app_outlined,
-          text: "TOQUE AQUI PARA INICIAR",
-          onTap: navigateToIntroduction,
+    return ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        SizedBox(
+          height: _height * 0.7,
+          child: CustomCarousel(items: promotions),
         ),
-      ),
-      const SizedBox(height: 40),
-    ]);
+        SizedBox(height: _height * 0.1),
+        SizedBox(
+          child: ActionButton(
+            icon: Icons.touch_app_outlined,
+            text: "TOQUE AQUI PARA INICIAR",
+            onTap: navigateToCashier,
+          ),
+        ),
+        const SizedBox(height: 40),
+      ],
+    );
   }
 }

@@ -36,7 +36,8 @@ const Color bgButtonWhite = Color(0xffffffff);
 
 const Color black = Color(0xff000000);
 const Color white = Color(0xffffffff);
-const Color blue = Color(0xff0D47A1);
+const Color blue = Color(0xff3750FF);
+
 const Color grey = Color(0xffbdbdbd);
 const Color lineWhite = Color(0xffececec);
 const Color lineGrey = Color(0xffbdbdbd);
