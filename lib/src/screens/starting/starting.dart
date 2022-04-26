@@ -4,6 +4,7 @@ import 'package:toten_prototipo/src/widgets/action_button.dart';
 import 'package:toten_prototipo/src/widgets/custom_carousel.dart';
 
 import '../cashier/cashier.dart';
+import '../cashier/cashier1.dart';
 
 /// Página voltada para o início
 /// Esta tela é o primeiro contato que o usuário entratá em contato
@@ -28,7 +29,7 @@ class _StartingState extends State<Starting> {
   void navigateToCashier() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const Cashier(),
+        builder: (context) => const Cashier1(),
       ),
     );
   }
@@ -43,8 +44,8 @@ class _StartingState extends State<Starting> {
   Widget getBody() {
     final double _height = MediaQuery.of(context).size.height;
 
-    return ListView(
-      padding: EdgeInsets.zero,
+    return Column(
+      // padding: EdgeInsets.zero,
       children: [
         SizedBox(
           height: _height * 0.7,
@@ -52,13 +53,15 @@ class _StartingState extends State<Starting> {
         ),
         SizedBox(height: _height * 0.1),
         SizedBox(
+          width: 412,
+          height: 131,
           child: ActionButton(
             icon: Icons.touch_app_outlined,
             text: "TOQUE AQUI PARA INICIAR",
             onTap: navigateToCashier,
           ),
         ),
-        const SizedBox(height: 40),
+        const SizedBox(height: 30),
       ],
     );
   }
