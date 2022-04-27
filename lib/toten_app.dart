@@ -10,7 +10,7 @@ class TotenApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // title: "Toten",
       home: const Starting(),
-      // home: const Testing(),
+      // home: const Cpf(),
       theme: ThemeData(
         // primaryColor: Colors.grey,
         colorScheme: ThemeData().colorScheme.copyWith(

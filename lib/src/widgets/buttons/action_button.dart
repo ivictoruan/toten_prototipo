@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../theme/colors.dart';
+import '../../theme/colors.dart';
 
 class ActionButton extends StatelessWidget {
   final String text;
   final Function() onTap;
   final IconData? icon;
+  final Color? color;
 
   const ActionButton(
-      {Key? key, required this.text, required this.onTap, this.icon})
+      {Key? key,
+      required this.text,
+      required this.onTap,
+      this.icon,
+      this.color})
       : super(key: key);
 
   @override
@@ -20,7 +25,7 @@ class ActionButton extends StatelessWidget {
       height: _height * 0.07,
       width: _width * 0.22,
       decoration: BoxDecoration(
-        color: blue,
+        color: color ?? blue,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(

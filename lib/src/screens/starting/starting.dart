@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:toten_prototipo/src/json/constant.dart';
-import 'package:toten_prototipo/src/widgets/action_button.dart';
+import 'package:toten_prototipo/src/screens/cpf/cpf.dart';
+import 'package:toten_prototipo/src/widgets/buttons/action_button.dart';
 import 'package:toten_prototipo/src/widgets/custom_carousel.dart';
 
 import '../cashier/cashier.dart';
-import '../cashier/cashier1.dart';
 
 /// Página voltada para o início
 /// Esta tela é o primeiro contato que o usuário entratá em contato
@@ -29,7 +29,15 @@ class _StartingState extends State<Starting> {
   void navigateToCashier() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const Cashier1(),
+        builder: (context) => const Cashier(),
+      ),
+    );
+  }
+
+  void navigateToCpf() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const Cpf(),
       ),
     );
   }
@@ -52,16 +60,21 @@ class _StartingState extends State<Starting> {
           child: CustomCarousel(items: promotions),
         ),
         SizedBox(height: _height * 0.1),
-        SizedBox(
-          width: 412,
-          height: 131,
-          child: ActionButton(
-            icon: Icons.touch_app_outlined,
-            text: "TOQUE AQUI PARA INICIAR",
-            onTap: navigateToCashier,
-          ),
-        ),
-        const SizedBox(height: 30),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 500,
+              height: 131,
+              child: ActionButton(
+                icon: Icons.touch_app_outlined,
+                text: "TOQUE AQUI PARA INICIAR",
+                onTap: navigateToCpf,
+              ),
+            ),
+            const SizedBox(height: 30),
+          ],
+        )
       ],
     );
   }
