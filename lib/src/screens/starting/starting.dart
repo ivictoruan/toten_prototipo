@@ -4,8 +4,6 @@ import 'package:toten_prototipo/src/screens/cpf/cpf.dart';
 import 'package:toten_prototipo/src/widgets/buttons/action_button.dart';
 import 'package:toten_prototipo/src/widgets/custom_carousel.dart';
 
-import '../cashier/cashier.dart';
-
 /// Página voltada para o início
 /// Esta tela é o primeiro contato que o usuário entratá em contato
 /// Existem promoções passando em um determinado tempo
@@ -18,22 +16,6 @@ class Starting extends StatefulWidget {
 }
 
 class _StartingState extends State<Starting> {
-  // void navigateToIntroduction() {
-  //   Navigator.of(context).push(
-  //     MaterialPageRoute(
-  //       builder: (context) => const Intructions(),
-  //     ),
-  //   );
-  // }
-
-  void navigateToCashier() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const Cashier(),
-      ),
-    );
-  }
-
   void navigateToCpf() {
     Navigator.of(context).push(
       MaterialPageRoute(

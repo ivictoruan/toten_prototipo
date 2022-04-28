@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../theme/colors.dart';
 
 class CustomTextField extends StatelessWidget {
   final double width;
-  const CustomTextField({Key? key, required this.width}) : super(key: key);
+  final TextEditingController? controller;
+  const CustomTextField({Key? key, required this.width, this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,11 @@ class CustomTextField extends StatelessWidget {
           ],
         ),
         child: TextFormField(
+          inputFormatters: [
+            FilteringTextInputFormatter.digitsOnly,
+            LengthLimitingTextInputFormatter(14),
+          ],
+          controller: controller,
           keyboardType: TextInputType.number,
           decoration: const InputDecoration(
             filled: true,

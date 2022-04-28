@@ -38,7 +38,10 @@ const Color black = Color(0xff000000);
 const Color white = Color(0xffffffff);
 const Color blue = Color(0xff3750FF);
 
-const Color grey = Color(0xffE5E5E5);
+const Color red = Color(0xffD01E1E);
+
+const Color grey = Color(0xffF6F6F6);
+
 const Color lineWhite = Color(0xffececec);
 const Color lineGrey = Color(0xffbdbdbd);
 const Color lineTextGrey = Color(0xff9E9E9E);
