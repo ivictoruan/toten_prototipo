@@ -18,15 +18,16 @@ class SmallActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+    final double _width = MediaQuery.of(context).size.width;
+    return Material(
+      elevation: 5,
+      borderRadius: BorderRadius.circular(20),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10),
-        width: MediaQuery.of(context).size.width * 0.4,
-        height: MediaQuery.of(context).size.height * 0.08,
+        width: MediaQuery.of(context).size.width * 0.0723,
+        height: MediaQuery.of(context).size.height * 0.07,
         decoration: BoxDecoration(
-          color: color ?? black,
-          borderRadius: BorderRadius.circular(30),
+          color: color,
+          borderRadius: BorderRadius.circular(20),
           // border: Border.all(
           //   // borda preta!
           //   color: color == white ? black : white,
@@ -34,9 +35,9 @@ class SmallActionButton extends StatelessWidget {
           // ),
           boxShadow: [
             BoxShadow(
-              color: accent.withOpacity(0.6),
-              blurRadius: 5,
-              offset: const Offset(0, 3),
+              color: grey.withOpacity(0.6),
+              blurRadius: 20,
+              offset: const Offset(1, -3),
             ),
           ],
         ),
@@ -44,14 +45,15 @@ class SmallActionButton extends StatelessWidget {
           onTap: onTap,
           child: Column(
             children: [
-              Icon(icon, size: 35, color: white),
+              Icon(icon,
+                  size: _width * 0.0228, color: color == white ? blue : white),
               Center(
                 child: Text(
                   text,
                   style: TextStyle(
-                    color: color == white ? black : white,
+                    color: color == white ? blue : white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: _width * 0.009765625,
                   ),
                 ),
               ),

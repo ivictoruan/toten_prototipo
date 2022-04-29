@@ -6,9 +6,12 @@ import '../../theme/colors.dart';
 import '../cashier/cashier.dart';
 
 class Cpf extends StatelessWidget {
+  // 1536 x 840.4
   const Cpf({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final double _height = MediaQuery.of(context).size.height;
+    final double _width = MediaQuery.of(context).size.width;
     void navigateToCashier() {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -23,28 +26,31 @@ class Cpf extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const SizedBox(
-              height: 100,
+            SizedBox(
+              height: _height * 0.118,
             ),
-            const Text(
+            Text(
               "Deseja informar seu CPF ou CNPJ?",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: _width * 0.026, fontWeight: FontWeight.w600),
             ),
 
             // INPUT CPF
-            const CustomTextField(
-              width: 1000,
+            CustomTextField(
+              width: _width * 0.651,
             ),
-            const SizedBox(
-              height: 100,
+            SizedBox(
+              height: _height * 0.118,
             ),
-            const SizedBox(height: 50),
+            SizedBox(
+              height: _height * 0.059,
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 SizedBox(
-                  width: 462,
-                  height: 70,
+                  width: _width * 0.300,
+                  height: _height * 0.083,
                   child: ActionButton(
                     icon: Icons.close,
                     text: "Prefiro não informar",
