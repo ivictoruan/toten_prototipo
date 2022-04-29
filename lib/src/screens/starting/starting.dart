@@ -33,31 +33,38 @@ class _StartingState extends State<Starting> {
 
   Widget getBody() {
     final double _height = MediaQuery.of(context).size.height;
+    final double _width = MediaQuery.of(context).size.width;
 
-    return Column(
-      // padding: EdgeInsets.zero,
-      children: [
-        SizedBox(
-          height: _height * 0.7,
-          child: CustomCarousel(items: promotions),
-        ),
-        SizedBox(height: _height * 0.1),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 500,
-              height: 131,
-              child: ActionButton(
-                icon: Icons.touch_app_outlined,
-                text: "TOQUE AQUI PARA INICIAR",
-                onTap: navigateToCpf,
-              ),
+    return SizedBox(
+      height: _height,
+      width: _width,
+      child: Column(
+        // padding: EdgeInsets.zero,
+        children: [
+          SizedBox(
+            height: _height * 0.7,
+            child: CustomCarousel(items: promotions),
+          ),
+          SizedBox(height: _height * 0.1),
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: _width * 0.325,
+                  height: _height * 0.155,
+                  child: ActionButton(
+                    icon: Icons.touch_app_outlined,
+                    text: "TOQUE AQUI PARA INICIAR",
+                    onTap: navigateToCpf,
+                  ),
+                ),
+                const SizedBox(height: 30),
+              ],
             ),
-            const SizedBox(height: 30),
-          ],
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
