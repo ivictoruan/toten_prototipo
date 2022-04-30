@@ -21,13 +21,13 @@ class SmallActionButton extends StatelessWidget {
     final double _width = MediaQuery.of(context).size.width;
     return Material(
       elevation: 5,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(_width * 0.013),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.0723,
         height: MediaQuery.of(context).size.height * 0.07,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(_width * 0.013),
           // border: Border.all(
           //   // borda preta!
           //   color: color == white ? black : white,
@@ -36,7 +36,7 @@ class SmallActionButton extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: grey.withOpacity(0.6),
-              blurRadius: 20,
+              blurRadius: _width * 0.013,
               offset: const Offset(1, -3),
             ),
           ],

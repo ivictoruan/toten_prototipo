@@ -11,21 +11,21 @@ class ProductInfo extends StatelessWidget {
     final double _width = MediaQuery.of(context).size.width;
     return Material(
       elevation: 15,
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(25),
-        bottomLeft: Radius.circular(25),
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(_width * 0.0163),
+        bottomLeft: Radius.circular(_width * 0.0163),
       ),
       color: blue,
       child: Container(
         height: _height * 0.648,
         width: _width * 0.7,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(25),
-            bottomLeft: Radius.circular(25),
+            topLeft: Radius.circular(_width * 0.0163),
+            bottomLeft: Radius.circular(_width * 0.0163),
           ),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: grey,
               blurRadius: 5.0,

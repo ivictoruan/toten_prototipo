@@ -29,27 +29,18 @@ class _CashierState extends State<Cashier> {
 }
 
 getBody(context) {
-  // void digitarCodigo() {
-  //   Navigator.of(context).push(
-  //     MaterialPageRoute(
-  //       builder: (context) => const Test(),
-  //     ),
-  //   );
-  // }
-
   final double _width = MediaQuery.of(context).size.width;
   final double _height = MediaQuery.of(context).size.height;
   return Padding(
-    padding: const EdgeInsets.symmetric(
-      vertical: 10,
+    padding: EdgeInsets.symmetric(
+      vertical: _width * 0.0065,
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         // CARRINHO
         const Cart(),
-        // MOSTRA INFORMAÇÕES
-        // ProductInfo(),
+        // MOSTRA INFORMAÇÕES + BOTÕES PESQUISAR, DIGITAR CÓDIGO E AJUDA
         Column(
           children: [
             SizedBox(
@@ -97,6 +88,7 @@ getBody(context) {
 
 //  custom content _onAlertSearchProduct
 _onAlertHelp(context) {
+  // NÃO-RESPONSIVO
   // componentizar este método.
   Alert(
     context: context,
@@ -150,6 +142,7 @@ _onAlertHelp(context) {
 } // FONTE: https://github.com/RatelHub/rflutter_alert/blob/master/example/lib/main.dart
 
 _onAlertEnterBarcode(context) {
+  // NÃO-RESPONSIVO
   final double _width = MediaQuery.of(context).size.width;
   // componentizar este método.
   Alert(

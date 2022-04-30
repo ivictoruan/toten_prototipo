@@ -18,20 +18,20 @@ class _CartState extends State<Cart> {
     final double _height = MediaQuery.of(context).size.height;
     return Material(
       elevation: 15,
-      borderRadius: const BorderRadius.only(
-        topRight: Radius.circular(25),
-        bottomRight: Radius.circular(25),
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(_width * 0.0163),
+        bottomRight: Radius.circular(_width * 0.0163),
       ),
       child: Container(
         height: _height * 0.9,
         width: _width * 0.28,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(25),
-            bottomRight: Radius.circular(25),
+            topRight: Radius.circular(_width * 0.0163),
+            bottomRight: Radius.circular(_width * 0.0163),
           ),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: grey,
               blurRadius: 5.0,
@@ -39,13 +39,13 @@ class _CartState extends State<Cart> {
           ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // CARRINHO + Nº DE ITENS
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(_height * 0.015),
+                  padding: EdgeInsets.all(_width * 0.009),
                   child: Icon(
                     FontAwesomeIcons.cartShopping,
                     color: blue,
@@ -124,33 +124,35 @@ class _CartState extends State<Cart> {
                 ),
               ],
             ),
-            SizedBox(
-              height: _height * 0.06949,
-            ),
+            // SizedBox(
+            //   height: _height * 0.06949,
+            // ),
             // ICON + FINALIZAR E PAGAR
             InkWell(
               onTap: () {},
               child: Container(
                 decoration: BoxDecoration(
-                  color: black.withOpacity(0.6),
+                  color: black.withOpacity(0.3),
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(_width * 0.016),
                   ),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Icon(
                       Icons.payment,
                       size: _width * 0.0455,
+                      color: white,
                     ),
-                    SizedBox(
-                      width: _width * 0.013,
-                    ),
+                    // SizedBox(
+                    //   width: _width * 0.013,
+                    // ),
                     Text(
-                      "FINALIZAR E PAGAR",
+                      "Finalizar e pagar",
                       style: TextStyle(
                           color: white,
-                          fontSize: _width * 0.01627,
+                          fontSize: _width * 0.018,
                           fontWeight: FontWeight.w600),
                     ),
                   ],
