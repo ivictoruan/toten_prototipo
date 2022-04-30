@@ -14,12 +14,12 @@ class EnterBarcode extends StatefulWidget {
 class _EnterBarcodeState extends State<EnterBarcode> {
   @override
   Widget build(BuildContext context) {
-    // final double _height = MediaQuery.of(context).size.height;
-    // final double _width = MediaQuery.of(context).size.width;
+    final double _height = MediaQuery.of(context).size.height;
+    final double _width = MediaQuery.of(context).size.width;
     final TextEditingController _myController = TextEditingController();
     return Container(
-      width: 1000,
-      height: 700 ,
+      width: _width * 0.3255,
+      height: _height * 0.5949,
       decoration: const BoxDecoration(
         color: white,
       ),
@@ -28,20 +28,20 @@ class _EnterBarcodeState extends State<EnterBarcode> {
           mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
-              "Digite o código indicado no produto e pressione Enter",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            // const Text(
+            //   "Digite o código indicado no produto e pressione Enter",
+            //   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            // ),
+            SizedBox(
+              height: _height * 0.0238,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextField(controller: _myController, width: 606),
-            const SizedBox(
-              height: 20,
+            CustomTextField(controller: _myController, width: _width * 0.3945),
+            SizedBox(
+              height: _height * 0.0238,
             ),
             // NUM PAD
             NumPad(
-              buttonSize: 75,
+              buttonSize: _width * 0.049,
               buttonColor: const Color(0xffECEAEA),
               // buttonColor: Colors.green,
               iconColor: blue,
@@ -52,13 +52,13 @@ class _EnterBarcodeState extends State<EnterBarcode> {
               },
               // do something with the input numbers
               onSubmit: () {
-                debugPrint('Your code: ${_myController.text}');
+                // debugPrint('Your code: ${_myController.text}');
                 showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
                           content: Text(
-                            "You code is ${_myController.text}",
-                            style: const TextStyle(fontSize: 30),
+                            "O código digitado é ${_myController.text}",
+                            style: TextStyle(fontSize: _width * 0.02),
                           ),
                         ));
               },

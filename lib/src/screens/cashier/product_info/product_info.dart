@@ -5,18 +5,8 @@ import '../../../theme/colors.dart';
 
 class ProductInfo extends StatelessWidget {
   const ProductInfo({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    // METHODS
-    // void enterBarcode() {
-    //   Navigator.of(context).pushReplacement(
-    //     MaterialPageRoute(
-    //       builder: (context) => const EnterBarcode(),
-    //     ),
-    //   );
-    // }
-
     final double _height = MediaQuery.of(context).size.height;
     final double _width = MediaQuery.of(context).size.width;
     return Material(
@@ -53,6 +43,7 @@ class ProductInfo extends StatelessWidget {
                 child: Lottie.network(
                     "https://assets7.lottiefiles.com/private_files/lf30_kqinim0b.json"),
               ),
+              // https://assets4.lottiefiles.com/packages/lf20_omullrhw.json
             ),
             Text(
               "Passe o código do produto pelo leitor",

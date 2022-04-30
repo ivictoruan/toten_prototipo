@@ -3,30 +3,35 @@ import 'package:flutter/material.dart';
 // KeyPad widget
 // This widget is reusable and its buttons are customizable (color, size)
 class NumPad extends StatelessWidget {
-  final double buttonSize;
-  final Color buttonColor;
-  final Color iconColor;
+  final double? buttonSize;
+  final Color? buttonColor;
+  final Color? iconColor;
   final TextEditingController controller;
   final Function delete;
   final Function onSubmit;
 
   const NumPad({
     Key? key,
-    this.buttonSize = 70,
-    this.buttonColor = Colors.indigo,
-    this.iconColor = Colors.amber,
+    // this.buttonSize = 70/1536 = 0.045572916666666664,
+    // this.buttonColor = Colors.indigo,
+    // this.iconColor = Colors.amber,
     required this.delete,
     required this.onSubmit,
     required this.controller,
+    this.buttonSize,
+    this.buttonColor,
+    this.iconColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final double _height = MediaQuery.of(context).size.height;
+    final double _width = MediaQuery.of(context).size.width;
     return Container(
-      margin: const EdgeInsets.only(left: 30, right: 30),
+      margin: EdgeInsets.symmetric(horizontal: _width * 0.01953125),
       child: Column(
         children: [
-          const SizedBox(height: 10),
+          SizedBox(height: _height * 0.0119),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             // implement the number keys (from 0 to 9) with the NumberButton widget
@@ -52,7 +57,7 @@ class NumPad extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: _height * .0119),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -76,9 +81,9 @@ class NumPad extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: _height * .0119),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly  ,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               NumberButton(
                 number: 7,
@@ -100,7 +105,7 @@ class NumPad extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: _height * .0119),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -118,13 +123,14 @@ class NumPad extends StatelessWidget {
                 size: buttonSize,
                 color: buttonColor,
                 controller: controller,
-              ),  
+              ),
               // this button is   used to submit the entered value
               IconButton(
                 onPressed: () => onSubmit(),
-                icon: Icon(
-                  Icons.done_rounded,
-                  color: iconColor,
+                icon: const Icon(
+                  Icons.check_box,
+                  color: Colors.green,
+                  // size: 80,
                 ),
                 iconSize: buttonSize,
               ),
@@ -139,21 +145,22 @@ class NumPad extends StatelessWidget {
 // define NumberButton widget
 // its shape is round
 class NumberButton extends StatelessWidget {
-  final int number;
-  final double size;
-  final Color color;
+  final int? number;
+  final double? size;
+  final Color? color;
   final TextEditingController controller;
 
   const NumberButton({
     Key? key,
-    required this.number,
-    required this.size,
-    required this.color,
+    this.number,
+    this.size,
+    this.color,
     required this.controller,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final double _width = MediaQuery.of(context).size.width;
     return SizedBox(
       width: size,
       height: size,
@@ -161,7 +168,7 @@ class NumberButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           primary: color,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(_width * 0.013),
           ),
         ),
         onPressed: () {
@@ -170,8 +177,10 @@ class NumberButton extends StatelessWidget {
         child: Center(
           child: Text(
             number.toString(),
-            style: const TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.black, fontSize: 30),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: _width * 0.01953125),
           ),
         ),
       ),
